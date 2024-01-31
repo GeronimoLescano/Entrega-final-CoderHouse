@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    | Producto | Categoría
+{% endblock title %}
+
+{% block content_title %}
+    Detalle de Categoría de Producto
+{% endblock  %}
+
+{% block contenido %}
+  <div class="container">
+  
+    <div class="card mt-4" style="background-color: #000; /* Cambia el color de fondo según tus preferencias */">
+      <div class="card-body">
+        <h5 class="card-title">{{ object.nombre }}</h5>
+        <p class="card-text">{{ object.descripcion }}</p>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <a href="{% url 'producto:productocategoria_list' %}" class="btn btn-primary">Volver a la Lista</a>
+      <a href="{% url 'producto:productocategoria_update' object.id %}" class="btn btn-warning">Editar</a>
+      <a href="{% url 'producto:productocategoria_delete' object.id %}" class="btn btn-danger">Eliminar</a>
+    </div>
+  </div>
+{% endblock contenido %}

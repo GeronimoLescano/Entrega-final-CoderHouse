@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block contenido %}
+    <h1>Lista de Libros</h1>
+    <ul>
+        {% for libro in libros %}
+            <li>
+                <img src="{% static 'media/portadas/descarga.jpg' %}" alt="{{ libro.titulo }}">
+                <a href="{% url 'descargar_pdf' libro.id %}">Descargar PDF</a>
+
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock contenido %}

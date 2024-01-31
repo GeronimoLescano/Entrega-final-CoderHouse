@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    | Producto | Categoría
+{% endblock title %}
+
+{% block content_title %}
+    Categorías de Productos
+{% endblock content_title %}
+
+{% block contenido %}
+  <div class="container" style="background-color: #000">
+    <div class="mb-4">
+      <form method="get" class="d-flex">
+        <input type="text" class="form-control me-2" name="consulta" placeholder="Buscar Categoría">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </form>
+    </div>
+
+    <table class="table table-striped table-bordered" style="background-color: #ffffff;">
+      <thead class="table-primary">
+        <tr>
+          <th>Nombre</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for categoria in object_list %}
+          <tr>
+            <td>{{ categoria.nombre }}</td>
+            <td>
+              <a href="{% url 'producto:productocategoria_detail' categoria.id %}" class="btn btn-info me-2">Detalle</a>
+              <a href="{% url 'producto:productocategoria_update' categoria.id %}" class="btn btn-warning me-2">Editar</a>
+              <a href="{% url 'producto:productocategoria_delete' categoria.id %}" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="text-center" colspan="2">No hay categorías disponibles.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock contenido %}
