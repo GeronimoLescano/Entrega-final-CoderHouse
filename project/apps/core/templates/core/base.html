@@ -7,8 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Patagonia Libros</title>
-        <link rel="icon" type="image/x-icon" href="{% static 'core/assets/favicon.ico' %}" />
+        <title>Medina Editorial</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'core/assets/fav.ico' %}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -33,13 +33,16 @@
                         {% if user.is_authenticated %}
                             <li class="nav-item"><a class="nav-link" href="{% url "producto:index" %}">Editar</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url "core:register" %}">Register</a></li>
-                            <li class="nav-item nav-link text-bg-info text" >{{user.username}}</li>
+                            <li class="nav-item"><a class="nav-link" href="{% url "admin:index" %}">admin</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-primary" href="{% url "producto:index" %}">{{ user.username }}</a>
+                            </li>
                             <li class="nav-item">
                                 <form action="{% url "core:logout" %}" method="post">
                                     {% csrf_token %}
-                                    <button type="submit" class= "btn btn-dark">Logout<button>
+                                    <button type="submit" class="btn btn-outline-primary nav-link">Logout</button>
                                 </form>
-                            </li>
+                            </li>   
                         {% else %}
                         <li class="nav-item"><a class="nav-link" href="{% url "core:login" %}">Login</a></li>
                         {% endif %}

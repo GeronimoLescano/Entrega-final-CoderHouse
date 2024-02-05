@@ -1,8 +1,21 @@
-<!-- index.html -->
+
 
 {% extends 'core/base.html' %}
-    
+
 {% block contenido %}
+    <style>
+        body {
+            background-color: lightblue; /* Fondo celeste para todo el cuerpo */
+        }
+
+        .card {
+            margin-top: 100px; /* Agrega un margen superior */
+        }
+
+        .card-title {
+            margin-top: 10px; /* Ajusta el margen superior del título */
+        }
+    </style>
 
     <div class="card text-center">
         <div class="card-body">
@@ -15,4 +28,5 @@
     </div>
 
 {% endblock contenido %}
+
 
