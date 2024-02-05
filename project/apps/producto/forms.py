@@ -2,7 +2,12 @@ from django import forms
 from .models import *
 
 
-class ProductoCategoriaForm(forms.ModelForm):
+
+
+class LibroForm(forms.ModelForm):
     class Meta:
-        model = ProductoCategoria
+        model = Libro
         fields = "__all__"
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['portada'].widget.attrs.update({'accept': 'image/*'})

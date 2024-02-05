@@ -1,0 +1,18 @@
+{% block contenido %}
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">{{ object.titulo }}</h5>
+            <p class="card-text">Descripción: {{ object.descripcion }}</p>
+            <p class="card-text">Portada: <img src="{{ object.portada.url }}" alt="Portada del libro"></p>
+            <p class="card-text">PDF: <a href="{{ object.pdf.url }}" target="_blank">Descargar PDF</a></p>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="{% url 'producto:libro_list' %}" class="btn btn-primary">Volver a la Lista</a>
+        <a href="{% url 'producto:libro_update' pk=object.pk %}" class="btn btn-warning">Editar</a>
+        <a href="{% url 'producto:libro_delete' pk=object.pk %}" class="btn btn-danger">Eliminar</a>
+    </div>
+</div>
+{% endblock %}

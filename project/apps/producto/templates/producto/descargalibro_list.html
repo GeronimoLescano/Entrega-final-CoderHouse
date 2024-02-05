@@ -1,0 +1,35 @@
+
+
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+
+<div class="card text-center">
+    <div class="card-body">
+        <h2 class="card-title">Registro de Descargas</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Título del Libro</th>
+                        <th>Fecha de Descarga</th>
+                        <th>Dirección IP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Itera sobre las descargas y muestra cada una en una fila de la tabla -->
+                    {% for descarga in descargas %}
+                    <tr>
+                        <!-- Muestra el título del libro correspondiente a la descarga -->
+                        <td>{{ descarga.libro.titulo }}</td>
+                        <td>{{ descarga.fecha_descarga }}</td>
+                        <td>{{ descarga.direccion_ip }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}

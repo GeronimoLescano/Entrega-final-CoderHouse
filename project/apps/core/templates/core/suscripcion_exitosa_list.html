@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+<section class="suscripcion-exitosa-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h2 class="mb-4">¡Suscripción exitosa!</h2>
+                <p>¡Gracias por suscribirte! Ahora recibirás actualizaciones y noticias importantes en tu correo electrónico.</p>
+                <p><a href="{% url 'core:index' %}" class="btn btn-primary">Volver a la página principal</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

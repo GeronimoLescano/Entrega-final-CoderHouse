@@ -29,7 +29,20 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url "producto:index" %}">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url "producto:libro_list" %}">Libros</a></li>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link" href="{% url "producto:index" %}">Editar</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url "core:register" %}">Register</a></li>
+                            <li class="nav-item nav-link text-bg-info text" >{{user.username}}</li>
+                            <li class="nav-item">
+                                <form action="{% url "core:logout" %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class= "btn btn-dark">Logout<button>
+                                </form>
+                            </li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url "core:login" %}">Login</a></li>
+                        {% endif %}
                         <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
                     </ul>
                 </div>

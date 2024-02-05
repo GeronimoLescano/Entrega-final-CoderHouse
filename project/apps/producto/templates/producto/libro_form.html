@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+<head>
+    <style>
+        body {
+            background-color: lightblue; /* Fondo celeste para todo el cuerpo */
+        }
+
+        .contenido-celeste {
+            display: flex;
+            justify-content: center; /* Centra horizontalmente en la página */
+            align-items: center; /* Centra verticalmente en la página */
+            height: 100vh; /* Ajusta la altura al 100% del viewport */
+        }
+
+        .formulario-blanco {
+            background-color: white; /* Establece el fondo celeste */
+            padding: 20px; /* Ajusta el relleno según sea necesario */
+            border-radius: 10px; /* Añade bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añade sombra */
+        }
+    </style>
+</head>
+<body>
+    <div class="contenido-celeste">
+        <form method="post" class="formulario-blanco" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'producto:libro_list' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+{% endblock contenido %}

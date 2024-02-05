@@ -1,22 +1,15 @@
+<!-- index.html -->
+
 {% extends 'core/base.html' %}
     
-{% block title %}
-    | Producto
-{% endblock title %}
-    
-{% block content_title %}
-    App Producto
-{% endblock content_title %}
-
 {% block contenido %}
 
     <div class="card text-center">
         <div class="card-body">
-            <h2 class="card-title">Categorías de Producto</h2>
+            <h2 class="card-title">Crear Libro</h2>
             <div class="d-flex justify-content-center gap-4">
-                <a class="btn btn-primary w-50" href="{% url 'producto:productocategoria_list' %}">Ver Categorías de Productos</a>
-                <a class="btn btn-primary w-50" href="{% url 'producto:productocategoria_form' %}">Crear Categorías de Productos</a>
-                <a class="btn btn-primary w-50" href="{% url 'producto:libro_list' %}">Libros</a>
+                <a class="btn btn-primary w-50" href="{% url 'producto:libro_form' %}">Crear Libro</a>
+                <a class="btn btn-primary w-50" href="{% url 'producto:libroedit_list' %}">Ver Libros</a>
             </div>
         </div>
     </div>

@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 #Apps Propias
 
 INSTALLED_APPS +=[
-    "core","producto",
+    "core","producto", 
 ]
 
 
@@ -63,7 +63,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'project.urls'
-
+import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -142,3 +142,4 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+LOGIN_URL = "/login/"

@@ -73,45 +73,21 @@
         </div>
     </div>
 </section>
-<!-- Signup-->
 <section class="signup-section" id="signup">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5">
             <div class="col-md-10 col-lg-8 mx-auto text-center">
                 <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
-                <form class="form-signup" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <h2 class="text-white mb-5">Suscribete para recibir las ultimas novedades!</h2>
+                <form class="form-signup" action="{% url 'core:suscribir' %}" method="post">
+                    {% csrf_token %}
                     <!-- Email address input-->
                     <div class="row input-group-newsletter">
-                        <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
-                        <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
+                        <div class="col"><input class="form-control" id="emailAddress" name="email" type="email" placeholder="Ingrese su email..." aria-label="Ingrese su email.." data-sb-validations="required,email" /></div>
+                        <div class="col-auto"><button class="btn btn-primary" id="submitButton" type="submit">Subscribirme!</button></div>
                     </div>
-                    <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div>
-                    <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center mb-3 mt-2 text-white">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
+                    <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">Se requiere un email.</div>
+                    <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">El Email proporsionado es invalido.</div>
                 </form>
             </div>
         </div>
@@ -125,11 +101,11 @@
                 <div class="card py-4 h-100">
                     <div class="card-body text-center">
                         <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">Address</h4>
+                        <h4 class="text-uppercase m-0">Direccion</h4>
                         <hr class="my-4 mx-auto" />
-                        <div class="small text-black-50">4923 Market Street, Orlando FL</div>
+                        <div class="small text-black-50">200 Av.Argentina, Neuquen, Argentina</div>
                     </div>
-                </div>
+                </div> 
             </div>
             <div class="col-md-4 mb-3 mb-md-0">
                 <div class="card py-4 h-100">
@@ -137,7 +113,7 @@
                         <i class="fas fa-envelope text-primary mb-2"></i>
                         <h4 class="text-uppercase m-0">Email</h4>
                         <hr class="my-4 mx-auto" />
-                        <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
+                        <div class="small text-black-50"><a href="#!">medinaeditorial@gmail.com</a></div>
                     </div>
                 </div>
             </div>
@@ -145,9 +121,9 @@
                 <div class="card py-4 h-100">
                     <div class="card-body text-center">
                         <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">Phone</h4>
+                        <h4 class="text-uppercase m-0">Telefono</h4>
                         <hr class="my-4 mx-auto" />
-                        <div class="small text-black-50">+1 (555) 902-8832</div>
+                        <div class="small text-black-50">+54 (299) 902-8832</div>
                     </div>
                 </div>
             </div>

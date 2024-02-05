@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+<head>
+    <style>
+        body {
+            background-color: lightblue; /* Fondo celeste para todo el cuerpo */
+        }
+
+        .contenido-celeste {
+            display: flex;
+            justify-content: center; /* Centra horizontalmente en la página */
+            align-items: center; /* Centra verticalmente en la página */
+            height: 100vh; /* Ajusta la altura al 100% del viewport */
+        }
+
+        .formulario-blanco {
+            background-color: white; /* Establece el fondo celeste */
+            padding: 20px; /* Ajusta el relleno según sea necesario */
+            border-radius: 10px; /* Añade bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añade sombra */
+        }
+    </style>
+    <h1>Login</h1>
+</head>
+<body>
+    <div class="contenido-celeste">
+        <form method="post" class="formulario-blanco" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name='next' value= "{% url "core:index" %}">
+            <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+            <a href="{% url 'core:index' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+{% endblock contenido %}

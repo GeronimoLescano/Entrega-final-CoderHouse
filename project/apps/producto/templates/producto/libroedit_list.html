@@ -1,0 +1,94 @@
+{% extends "core/base.html" %}
+
+
+
+{% block contenido %}
+    <style>
+        body {
+            background-color: lightblue;
+            margin-top: 50px; /* Agrega margen superior */
+            text-align: center; /* Centra el texto */
+        }
+
+        h1 {
+            margin-bottom: 20px; /* Añade margen inferior al título */
+        }
+
+        .buscador {
+            margin-bottom: 20px; /* Añade margen inferior al formulario de búsqueda */
+        }
+
+        .buscador input[type="text"] {
+            padding: 10px; /* Ajusta el padding del campo de texto */
+            border-radius: 5px; /* Añade bordes redondeados al campo de texto */
+            border: 1px solid #ccc; /* Añade un borde al campo de texto */
+        }
+
+        .buscador button {
+            padding: 10px 20px; /* Ajusta el padding del botón */
+            border-radius: 5px; /* Añade bordes redondeados al botón */
+            border: none; /* Quita el borde del botón */
+            background-color: #007bff; /* Establece el color de fondo del botón */
+            color: white; /* Establece el color del texto del botón */
+            cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+        }
+
+        .libro-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .libro-card-item {
+            width: 300px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .libro-card-item img {
+            width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px; /* Añade margen inferior a la imagen */
+        }
+
+        .libro-card-item h2 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .libro-card-item p {
+            margin-bottom: 10px;
+        }
+
+        .libro-card-item a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+
+    <h1>Listado de Libros</h1>
+
+    <form class="buscador" method="get" action="{% url 'producto:libro_list' %}">
+        <input type="text" name="q" placeholder="Buscar por título">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <div class="libro-card">
+        {% for libro in libros %}
+        <div class="libro-card-item">
+            <h2>{{ libro.titulo }}</h2>
+            <img src="{{ libro.portada.url }}" alt="{{ libro.titulo }}">
+            <p>{{ libro.descripcion }}</p>
+            <a href="{% url 'producto:libroupdate' libro.pk %}">Editar</a>
+            <a href="{% url 'producto:libro_confirm_delete' libro.pk %}">Eliminar</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

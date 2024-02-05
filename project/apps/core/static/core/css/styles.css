@@ -11201,3 +11201,11 @@ body {
 .footer {
   padding: 5rem 0;
 }
+
+.fondo-lightblue {
+  background-color: lightblue;
+  /* Otros estilos opcionales */
+  padding: 20px; /* Ajusta el espaciado interior según sea necesario */
+  border-radius: 10px; /* Ajusta el radio de borde para redondear las esquinas */
+}
+

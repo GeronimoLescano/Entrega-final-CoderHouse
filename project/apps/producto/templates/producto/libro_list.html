@@ -1,14 +1,55 @@
 {% extends "core/base.html" %}
 {% load static %}
-{% block contenido %}
-    <h1>Lista de Libros</h1>
-    <ul>
-        {% for libro in libros %}
-            <li>
-                <img src="{% static 'media/portadas/descarga.jpg' %}" alt="{{ libro.titulo }}">
-                <a href="{% url 'descargar_pdf' libro.id %}">Descargar PDF</a>
 
-            </li>
+{% block contenido %}
+    <style>
+        body {
+            background-color: #808080;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 100px; /* Agrega espacio entre la navbar y las tarjetas */
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 80%;
+            height: auto;
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+
+    <div class="card-container">
+        {% for libro in libros %}
+            <div class="card">
+                <img src="{{ libro.portada.url }}" alt="{{ libro.titulo }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ libro.titulo }}</h5>
+                    <a href="{% url 'producto:descargar_pdf' libro.id %}" class="btn btn-primary">Descargar PDF</a>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock contenido %}
