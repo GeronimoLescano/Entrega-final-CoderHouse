@@ -1,6 +1,4 @@
-from typing import Any
-from django.db.models.query import QuerySet
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
@@ -22,12 +20,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def index(request):
     return render(request, "producto/index.html")
 
-def descargalibro_list(request):
-    # Obtener todas las descargas de libros desde la base de datos
-    descargas = DescargaLibro.objects.all()
-    libro = Libro.objects.all()
-    # Renderizar el template 'registro_descargas.html' con los datos de las descargas
-    return render(request, 'producto/descargalibro_list.html', {'descargas': descargas, 'libros': libro})
+
 
 
 
@@ -66,9 +59,6 @@ class LibroDeleteView(LoginRequiredMixin, DeleteView):
 def libro_list(request):
     libros = Libro.objects.all()
     return render(request, 'producto/libro_list.html', {'libros': libros})
-
-
-
 
 
 

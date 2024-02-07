@@ -1,14 +1,66 @@
 {% extends 'core/base.html' %}
 
 {% block contenido %}
-<div class="container">
+<head>
+    <style>
+        body {
+            background-color: lightblue; /* Fondo celeste para todo el cuerpo */
+        }
+
+        .navbar {
+            display: none; /* Oculta la barra de navegación */
+        }
+
+        .alert {
+            background-color: #f8d7da; /* Color de fondo del alert */
+            border-color: #f5c6cb; /* Color del borde del alert */
+            color: #721c24; /* Color del texto del alert */
+            border-radius: .25rem; /* Bordes redondeados del alert */
+            padding: .75rem 1.25rem; /* Espaciado interno del alert */
+            margin-bottom: 20px; /* Espacio inferior para separar del formulario */
+            width: 100%; /* Ancho del alert */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Cambia la dirección del eje principal a vertical */
+            justify-content: center; /* Centra verticalmente en la página */
+            align-items: center; /* Centra horizontalmente en la página */
+            margin-top: 20px; /* Margen superior para separar del mensaje */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn-danger {
+            background-color: #dc3545; /* Color de fondo del botón danger */
+            border-color: #dc3545; /* Color del borde del botón danger */
+            color: #fff; /* Color del texto del botón danger */
+        }
+
+        .btn-secondary {
+            background-color: #6c757d; /* Color de fondo del botón secondary */
+            border-color: #6c757d; /* Color del borde del botón secondary */
+            color: #fff; /* Color del texto del botón secondary */
+        }
+    </style>
+</head>
+<body>
+    <!-- Mensaje de alerta -->
     <div class="alert alert-danger" role="alert">
         <p>¿Estás seguro de que quieres eliminar "{{ object.titulo }}"?</p>
     </div>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Eliminar</button>
-        <a href="{% url 'producto:libroedit_list'%}" class="btn btn-secondary">Cancelar</a>
-    </form>
-</div>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a href="{% url 'producto:libroedit_list'%}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
 {% endblock %}

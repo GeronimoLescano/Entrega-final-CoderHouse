@@ -1,13 +1,44 @@
 {% extends "core/base.html" %}
 
 {% block contenido %}
-<div class="container">
-    <h2>Actualizar Libro</h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
+<head>
+    <style>
+        body {
+            background-color: lightblue; /* Fondo celeste para todo el cuerpo */
+        }
+        .navbar {
+            display: none; /* Oculta la barra de navegación */
+        }
+        .container {
+            display: flex;
+            flex-direction: column; /* Cambia la dirección del eje principal a vertical */
+            justify-content: center; /* Centra verticalmente en la página */
+            align-items: center; /* Centra horizontalmente en la página */
+            height: calc(100vh - 100px); /* Ajusta la altura al 100% del viewport menos 100px de margen con respecto a la navbar */
+            margin-top: 100px; /* Margen superior para separar de la navbar */
+        }
 
-        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-    </form>
-</div>
-{% endblock %}
+        .formulario-blanco {
+            background-color: white; /* Establece el fondo blanco */
+            padding: 20px; /* Ajusta el relleno según sea necesario */
+            border-radius: 10px; /* Añade bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añade sombra */
+        }
+
+        h2 {
+            margin-bottom: 20px; /* Espacio inferior para separar del formulario */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Actualizar Libro</h2>
+        <form method="post" enctype="multipart/form-data" class="formulario-blanco">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </form>
+    </div>
+</body>
+{% endblock contenido %}
+
